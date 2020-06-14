@@ -375,10 +375,16 @@ class Pause(object):
             pygame.mixer.music.pause()
         self.paused = not self.paused
 
-    
+'''
 def text_format(message, textFont, textSize, textColor): # why is the text ugly? idk
     pygame.font.init()
     newFont=pygame.font.Font(textFont, textSize)
+    newText=newFont.render(message, 0, textColor)
+    return newText
+''' # microsoftyibaiti
+def text_format(message, textFont, textSize, textColor): 
+    pygame.font.init()
+    newFont=pygame.font.SysFont(textFont, textSize)
     newText=newFont.render(message, 0, textColor)
     return newText
     
@@ -402,10 +408,10 @@ def main_menu():
                     if selected==True:
                         menu = False
 
-        title = text_format("luna", 'freesansbold.ttf', 75, (0,0,0))
+        title = text_format("luna", 'microsoftyibaiti', 75, (0,0,0))
         # Main Menu UI
         wn.blit(introbg, (0,0))
-        prompt = text_format("press enter to play", 'freesansbold.ttf', 45, (0, 0, 0))
+        prompt = text_format("press enter to play", 'microsoftyibaiti', 45, (0, 0, 0))
         # Main Menu Text
         wn.blit(prompt, (displaywidth*0.6, displayheight/2))
         wn.blit(title, (displaywidth*0.74, displayheight/4))
@@ -434,13 +440,13 @@ def set_players():
                     two_player = True
                     menu = False
         if selected == True:
-            title = text_format("Play!", 'freesansbold.ttf', 75, (0,0,0))
+            title = text_format("Play!", 'microsoftyibaiti', 75, (0,0,0))
         else:
-            title = text_format("luna", 'freesansbold.ttf', 75, (0,0,0))
+            title = text_format("luna", 'microsoftyibaiti', 75, (0,0,0))
         # Main Menu UI
        # print('two_player 2', two_player)
         wn.blit(introbg, (0,0))
-        prompt = text_format("press 1 for single player, or 2 for two player", 'freesansbold.ttf', 20, (0, 0, 0))
+        prompt = text_format("press 1 for single player, or 2 for two player", 'microsoftyibaiti', 20, (0, 0, 0))
         # Main Menu Text
         wn.blit(prompt, (displaywidth*0.6, displayheight/2))
         wn.blit(title, (displaywidth*0.74, displayheight/4))
@@ -474,14 +480,14 @@ def pause_menu():
                     two_player = True
                     menu = False
         if selected == True:
-            title = text_format("Play!", 'freesansbold.ttf', 75, (0,0,0))
+            title = text_format("Play!", 'microsoftyibaiti', 75, (0,0,0))
         else:
-            title = text_format("luna", 'freesansbold.ttf', 75, (0,0,0))
+            title = text_format("luna", 'microsoftyibaiti', 75, (0,0,0))
         # Main Menu UI
         wn.blit(pausescreen, (0,0))
-        prompt = text_format("press enter to resume", 'freesansbold.ttf', 35, (0, 0, 0))
-        prompt2 = text_format("press 1 for single player", 'freesansbold.ttf', 25, (0, 0, 0))
-        prompt3 = text_format("press 2 for two player", 'freesansbold.ttf', 25, (0, 0, 0))
+        prompt = text_format("press enter to resume", 'microsoftyibaiti', 35, (0, 0, 0))
+        prompt2 = text_format("press 1 for single player", 'microsoftyibaiti', 25, (0, 0, 0))
+        prompt3 = text_format("press 2 for two player", 'microsoftyibaiti', 25, (0, 0, 0))
         # Main Menu Text
         wn.blit(prompt, (displaywidth*0.6, displayheight/2))
         wn.blit(prompt2, (displaywidth*0.7, 2*displayheight/3))
@@ -665,7 +671,7 @@ def main():
         global possy
         length = int(len(compliments))
         spoints = str(points)
-        disp_point = text_format("points:", 'freesansbold.ttf', 35, (0, 0, 0))
+        disp_point = text_format("points:", 'microsoftyibaiti', 35, (0, 0, 0))
         if distance3 < 20 and two_player:
             hit_now = secrets.choice(hit)
             hit_now.play()
@@ -696,22 +702,22 @@ def main():
                 soup = compliments.pop(iii) 
 
         if length <= 0:
-            disp_points = text_format(spoints, 'freesansbold.ttf', 35, (0, 0, 0))
+            disp_points = text_format(spoints, 'microsoftyibaiti', 35, (0, 0, 0))
             if points == 69:
-                disp_points = text_format("696969696969696969696969696969696969696969696969696969696969696969696969", 'freesansbold.ttf', 25, (0, 0, 0))
+                disp_points = text_format("696969696969696969696969696969696969696969696969696969696969696969696969", 'microsoftyibaiti', 25, (0, 0, 0))
             if points == 100:
-                disp_points = text_format("100 points? I get it, you're a hardcore gamer... no need to flex so hard!", 'freesansbold.ttf', 25, (0, 0, 0))
+                disp_points = text_format("100 points? I get it, you're a hardcore gamer... no need to flex so hard!", 'microsoftyibaiti', 25, (0, 0, 0))
         else:
             if points > 5 and points < 7:
-                disp_points = text_format("so many", 'freesansbold.ttf', 35, (0, 0, 0))
+                disp_points = text_format("so many", 'microsoftyibaiti', 35, (0, 0, 0))
             elif points <= 5:
-                disp_points = text_format(spoints, 'freesansbold.ttf', 35, (0, 0, 0))
+                disp_points = text_format(spoints, 'microsoftyibaiti', 35, (0, 0, 0))
             elif points == 42:
-                disp_points = text_format("420 - I mean 42... my bad", 'freesansbold.ttf', 35, (0, 0, 0))
+                disp_points = text_format("420 - I mean 42... my bad", 'microsoftyibaiti', 35, (0, 0, 0))
             elif points % 10 == 0:
-                disp_points = text_format(spoints, 'freesansbold.ttf', 35, (0, 0, 0))
+                disp_points = text_format(spoints, 'microsoftyibaiti', 35, (0, 0, 0))
             else:
-                disp_points = text_format(soup, 'freesansbold.ttf', 25, (0, 0, 0))
+                disp_points = text_format(soup, 'microsoftyibaiti', 25, (0, 0, 0))
 
         for event in pygame.event.get():
             keys = pygame.key.get_pressed()
